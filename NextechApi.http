@@ -1,0 +1,6 @@
+@NextechApi_HostAddress = http://localhost:5147
+
+GET {{NextechApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
