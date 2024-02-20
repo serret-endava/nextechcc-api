@@ -13,6 +13,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped(typeof(IStoryRepository<>), typeof(StoryRepository<>));
 builder.Services.AddScoped<IStoryService, StoryService>();
+builder.Services.AddMemoryCache();
+
+
 var app = builder.Build();
 
 
@@ -23,7 +26,7 @@ if (app.Environment.IsDevelopment())
 {
 	app.UseSwaggerUI();
 }
-
+app.UseCors(x => x.AllowAnyOrigin());
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
